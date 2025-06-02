@@ -1,0 +1,14 @@
+av==14.4.0
+customtkinter==5.2.2
+darkdetect==0.8.0
+imageio==2.37.0
+imageio-ffmpeg==0.6.0
+numpy==2.2.6
+packaging==25.0
+pillow==10.4.0
+python-vlc==3.0.21203
+pytube==15.0.0
+tkvideo==0.1
+tkvideoplayer==2.3
+ttkbootstrap==1.13.8
+yt-dlp==2025.5.22

@@ -9,6 +9,7 @@ import json
 import hashlib
 import subprocess
 from PIL import Image, ImageTk
+import threading
 
 class VideoManager():
     def __init__(self) -> None:
@@ -21,9 +22,9 @@ class VideoManager():
         search_and_download_frame.pack(fill=tk.X, padx=20, pady=10)
         search_bar = ctk.CTkEntry(search_and_download_frame, placeholder_text="Enter video text or url to download...", width=400)
         search_bar.grid(row=0, column=0, padx=10, pady=10, sticky="ew")
-        search_button = ctk.CTkButton(search_and_download_frame, text="Search")
+        search_button = ctk.CTkButton(search_and_download_frame, text="Search", command=lambda: self.search_videos(search_bar.get()))
         search_button.grid(row=0, column=1, padx=10, pady=10)
-        download_button = ctk.CTkButton(search_and_download_frame, text="⤓", command=lambda: self.download_video(search_bar.get()))
+        download_button = ctk.CTkButton(search_and_download_frame, text="⤓", command=lambda: self.start_long_running_task(search_bar.get()))
         download_button.grid(row=0, column=2, padx=10, pady=10)
 
 
@@ -46,13 +47,29 @@ class VideoManager():
         self.show_videos_on_ui(videos)
 
         self.app.mainloop()
-
+    def search_videos(self, query):
+        if query:
+            metadata_files = os.listdir("metadata")
+            matching_videos = []
+            for metadata_file in metadata_files:
+                if metadata_file.endswith('.json'):
+                    with open(os.path.join("metadata", metadata_file), 'r') as f:
+                        metadata = json.load(f)
+                        if query.lower() in metadata.get("title", "").lower():
+                            matching_videos.append(metadata_file.replace('.json', '.mp4'))
+            self.show_videos_on_ui(matching_videos)
+        else:
+            print("Search query is empty. Displaying all videos.")
+            video_files = self.get_videos()
+            self.show_videos_on_ui(video_files)
     def get_videos(self):
         files = os.listdir("downloads")
         video_files = [f for f in files if f.endswith(('.mp4', '.avi', '.mkv'))]
         return video_files
 
     def show_videos_on_ui(self, video_files):
+        for widget in self.display_video_frame.winfo_children():
+            widget.destroy()
         print(f"Showing {len(video_files)} videos on UI.")
         row = 0
         col = 0
@@ -159,7 +176,7 @@ class VideoManager():
         stop_button = ctk.CTkButton(controls_frame, text="Stop", command=lambda: self._stop_and_close_player(root))
         stop_button.pack(side=tk.LEFT, padx=5, pady=5)
 
-        volume_slider = ctk.CTkSlider(controls_frame, from_=0, to=100, command=lambda value: self.media_player.audio_set_volume(int(value)))
+        volume_slider = ctk.CTkSlider(controls_frame, from_=0, to=100, command=lambda value: self.media_player.audio_set_volume(int(value)))#type: ignore
         volume_slider.set(50)
         volume_slider.pack(side=tk.LEFT, padx=5, pady=5)
 
@@ -181,7 +198,7 @@ class VideoManager():
 
         self.media_player.play()
 
-        progress_bar = ctk.CTkSlider(root, width=800,from_=0, to=100, command=lambda value: self.media_player.set_position(float(value)/100))
+        progress_bar = ctk.CTkSlider(root, width=800,from_=0, to=100, command=lambda value: self.media_player.set_position(float(value)/100))#type: ignore
         progress_bar.pack(side=tk.BOTTOM, padx=5, pady=5)
         # Update the progress bar periodically
         def update_progress_bar():
@@ -214,6 +231,8 @@ class VideoManager():
             self.media_player.set_hwnd(event.widget.winfo_id())
 
     def download_video(self, url):
+        
+
         # Inner function to get video title using yt-dlp
         def get_video_title_yt(video_url):
             ydl_opts = {
@@ -329,6 +348,21 @@ class VideoManager():
             print(f"yt-dlp thumbnail process complete.")
         else:
             print(f"yt-dlp thumbnail process failed or file not found.")
+    def refresh_ui_after_download(self):
+        print("Refreshing UI after download...")
+        video_files = self.get_videos()
+        self.show_videos_on_ui(video_files)
+        print("UI refreshed with new video list.")
+    def long_running_task(self, url):
+        print(f"Starting long-running task for URL: {url}")
+        time.sleep(5)
+        self.download_video(url)
+        self.app.after(0, self.refresh_ui_after_download)
+    def start_long_running_task(self, url):
+        thread = threading.Thread(target=self.long_running_task, args=(url,))
+        thread.daemon = True
+        thread.start()
+        print(f"Thread started for URL: {url}")
 
 if __name__ == "__main__":
     video_manager = VideoManager()
