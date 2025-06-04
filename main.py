@@ -8,7 +8,8 @@ import time
 import json
 import hashlib
 import subprocess
-from PIL import Image, ImageTk
+from PIL import Image
+from fuzzywuzzy import process, fuzz
 import threading
 
 class VideoManager():
@@ -49,14 +50,19 @@ class VideoManager():
         self.app.mainloop()
     def search_videos(self, query):
         if query:
+            query = query.lower().split()
             metadata_files = os.listdir("metadata")
             matching_videos = []
             for metadata_file in metadata_files:
                 if metadata_file.endswith('.json'):
                     with open(os.path.join("metadata", metadata_file), 'r') as f:
                         metadata = json.load(f)
-                        if query.lower() in metadata.get("title", "").lower():
+                        if all(word in metadata.get("title", "").lower() for word in query):
+                            matching_videos.append(metadata_file.replace('.json', '.mp4'))  # Assuming video files are named the same as metadata files
+                        elif any(word in metadata.get("uploader", "").lower() for word in query):
                             matching_videos.append(metadata_file.replace('.json', '.mp4'))
+
+            print(f"\n\n\n{matching_videos}")
             self.show_videos_on_ui(matching_videos)
         else:
             print("Search query is empty. Displaying all videos.")
@@ -79,7 +85,7 @@ class VideoManager():
             thumbnail_path = thumbnail_path.replace('.mp4', '.webp')  # Adjust for thumbnail extension
 
             if os.path.exists(thumbnail_path): # Added check for thumbnail file existence
-                print(f"Thumbnail found for {video_file}: {thumbnail_path}")
+                # print(f"Thumbnail found for {video_file}: {thumbnail_path}")
                 pil_img = Image.open(thumbnail_path)
 
                 temp_img = pil_img.copy()
@@ -102,7 +108,7 @@ class VideoManager():
                     video_info_label = ctk.CTkLabel(video_frame, text=f"{video_title}\n{video_uploader}\n{video_duration} seconds", fg_color="#0F0F0F", text_color="white",width=200, height=60,wraplength=250)
                     video_info_label.pack(padx=10, pady=10)
                     video_info_label.bind("<Button-1>", lambda e, path=video_path: self.play_video(path))
-                    print(f"Metadata loaded for {video_file}: {video_title}, {video_uploader}, {video_duration} seconds")
+                    # print(f"Metadata loaded for {video_file}: {video_title}, {video_uploader}, {video_duration} seconds")
                 except FileNotFoundError:
                     print(f"Metadata file not found for {json_file_path}. Using default values.")
                     video_info_label = ctk.CTkLabel(video_frame, text="Unknown Title\nUnknown Uploader\nUnknown Duration", fg_color="#0F0F0F", text_color="white")
@@ -178,20 +184,20 @@ class VideoManager():
                 controls_frame.grid(row=0, column=0, sticky="ew")
                 
         pause_button = ctk.CTkButton(controls_frame, text="Pause/play", command=self.pause_video)
-        pause_button.pack(side=tk.LEFT, padx=5, pady=5)
+        pause_button.pack(side=tk.LEFT, padx=0, pady=0)
         
         # The stop button should now stop the current player and close its window
         stop_button = ctk.CTkButton(controls_frame, text="Stop", command=lambda: self._stop_and_close_player(root))
-        stop_button.pack(side=tk.LEFT, padx=5, pady=5)
+        stop_button.pack(side=tk.LEFT, padx=0, pady=0)
 
         volume_slider = ctk.CTkSlider(controls_frame, from_=0, to=200, command=lambda value: self.media_player.audio_set_volume(int(value)))#type: ignore
         volume_slider.set(50)
-        volume_slider.pack(side=tk.LEFT, padx=5, pady=5)
+        volume_slider.pack(side=tk.LEFT, padx=0, pady=0)
 
 
         
         video_frame = ctk.CTkFrame(root, fg_color="black")
-        video_frame.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
+        video_frame.grid(row=1, column=0, padx=0, pady=0, sticky="nsew")
         root.grid_rowconfigure(1, weight=1)  # Allow video frame to expand
         root.grid_columnconfigure(0, weight=1)
         
@@ -214,15 +220,33 @@ class VideoManager():
         root.bind("<space>", lambda e: self.pause_video())  # Pause/play on space key
         root.bind("<f>", lambda e: toggle_fullscreen(root=root))  # Toggle fullscreen on 'f' key
         progress_bar = ctk.CTkSlider(root, width=800,from_=0, to=100, command=lambda value: self.media_player.set_position(float(value)/100))#type: ignore
-        progress_bar.grid(row=2, column=0, padx=10, pady=10, sticky="ew")
+        progress_bar.grid(row=2, column=0, padx=0, pady=0, sticky="ew")
         progress_bar.columnconfigure(0, weight=1)  # Allow progress bar to expand
+        progress_bar_label = ctk.CTkLabel(root, text=f"00:00 / 00:00", fg_color="#2c3e50")
+        progress_bar_label.grid(row=3, column=0, padx=0, pady=0, sticky="ew")
+        # Update the label with the total video duration
+
         # Update the progress bar periodically
-        def update_progress_bar():
+        def update_playback_ui():
             if self.media_player and self.media_player.is_playing():
+                # Update slider
                 position = self.media_player.get_position() * 100
                 progress_bar.set(position)
-            root.after(1000, update_progress_bar)  # Update every second
-        update_progress_bar()
+
+                # Update label
+                length_ms = self.media_player.get_length() # Get length in milliseconds
+                current_time_ms = self.media_player.get_time() # Get current time in milliseconds
+
+                if length_ms > 0: # Avoid division by zero
+                    current_minutes, current_seconds = divmod(current_time_ms // 1000, 60)
+                    total_minutes, total_seconds = divmod(length_ms // 1000, 60)
+                    progress_bar_label.configure(text=f"{int(current_minutes):02}:{int(current_seconds):02} / {int(total_minutes):02}:{int(total_seconds):02}")
+                else:
+                    progress_bar_label.configure(text="00:00 / 00:00")
+
+            root.after(1000, update_playback_ui)  # Update every second
+
+        update_playback_ui() # Start the periodic update
         # Handle window close protocol (e.g., clicking the 'X' button)
         root.protocol("WM_DELETE_WINDOW", lambda: self._stop_and_close_player(root))
 

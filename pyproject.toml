@@ -5,13 +5,12 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "av>=14.4.0",
     "customtkinter>=5.2.2",
+    "fuzzywuzzy>=0.18.0",
     "pillow>=10.4.0",
+    "python-levenshtein>=0.27.1",
     "python-vlc>=3.0.21203",
     "pytube>=15.0.0",
-    "tkvideo>=0.1",
-    "tkvideoplayer>=2.3",
     "ttkbootstrap>=1.13.8",
     "yt-dlp>=2025.5.22",
 ]
