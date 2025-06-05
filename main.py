@@ -33,10 +33,9 @@ class VideoManager():
         self.display_video_frame.pack(pady=20, padx=20, fill=tk.BOTH, expand=True)
 
         # Initialize vlc_instance once for the application
-        self.vlc_instance = vlc.Instance()
+        
         # Initialize media_player to None; it will be created per playback
-        self.media_player = None
-        self.current_media = None
+
 
         # Ensure 'downloads' and 'thumbnails' and 'metadata' directories exist
         os.makedirs("downloads", exist_ok=True)
@@ -164,78 +163,50 @@ class VideoManager():
             return None
 
     def play_video(self, video_path):
-        print(f"Attempting to play video: {video_path}")
-        root = ctk.CTkToplevel(self.app)
-        root.title("Video Player")
-        root.geometry("800x600")
-
-        # Create a new media player instance for *this* playback
-        self.media_player = self.vlc_instance.media_player_new()# type: ignore
-
-        controls_frame = ctk.CTkFrame(root, fg_color="#2c3e50")
-        controls_frame.grid(row=0, column=0, sticky="ew")
-        root.grid_rowconfigure(0, weight=0)  # Controls frame should not expand
+        def on_video_frame_configure(self, event):
+            # Only set HWND if media_player exists and is valid
+            if media_player:
+                media_player.set_hwnd(event.widget.winfo_id())
+        def _stop_and_close_player(self, player_window, media_player):
+            """Stops the current video, releases its resources, and closes the player window."""
+            if media_player:
+                media_player.stop()
+                media_player.release()  # Release resources for this specific player
+                media_player = None     # Reset media_player to None
+            player_window.destroy()          # Close the Toplevel window
+        def pause_video(self):
+            if media_player:
+                if media_player.is_playing():
+                    media_player.pause()
+                else:
+                    media_player.play()
         def toggle_fullscreen(root):
             if controls_frame.winfo_viewable():
-                root.attributes("-fullscreen", True)
+                root.attributes("-fullscreen",True)
                 controls_frame.grid_forget()
             else:
-                root.attributes("-fullscreen", False)
-                controls_frame.grid(row=0, column=0, sticky="ew")
-                
-        pause_button = ctk.CTkButton(controls_frame, text="Pause/play", command=self.pause_video)
-        pause_button.pack(side=tk.LEFT, padx=0, pady=0)
-        
-        # The stop button should now stop the current player and close its window
-        stop_button = ctk.CTkButton(controls_frame, text="Stop", command=lambda: self._stop_and_close_player(root))
-        stop_button.pack(side=tk.LEFT, padx=0, pady=0)
+                root.attributes("-fullscreen",False)
+                controls_frame.grid(row=0,column=0, sticky="ew")
+        def increase_volume(self, volume_slider):
+            if media_player:
+                current_volume = media_player.audio_get_volume()
+                new_volume = min(current_volume+10, 200)
+                media_player.audio_set_volume(new_volume)
+                volume_slider.set(new_volume)
+        def decrease_volume(self, volume_slider):
+            if media_player:
+                current_volume = media_player.audio_get_volume()
+                new_volume = max(current_volume-10, 0)
+                media_player.audio_set_volume(new_volume)
+                volume_slider.set(new_volume)
 
-        volume_slider = ctk.CTkSlider(controls_frame, from_=0, to=200, command=lambda value: self.media_player.audio_set_volume(int(value)))#type: ignore
-        volume_slider.set(50)
-        volume_slider.pack(side=tk.LEFT, padx=0, pady=0)
-
-
-        
-        video_frame = ctk.CTkFrame(root, fg_color="black")
-        video_frame.grid(row=1, column=0, padx=0, pady=0, sticky="nsew")
-        root.grid_rowconfigure(1, weight=1)  # Allow video frame to expand
-        root.grid_columnconfigure(0, weight=1)
-        
-        # Bind the configure event for resizing the video output
-        video_frame.bind("<Configure>", self.on_video_frame_configure)
-
-        # Set the media to play
-        media = self.vlc_instance.media_new(video_path)# type: ignore
-        self.media_player.set_media(media)
-
-        # Crucial: Update idle tasks to ensure the window is drawn and has a winfo_id
-        root.update_idletasks()
-        self.media_player.set_hwnd(video_frame.winfo_id())
-
-        self.media_player.play()
-        root.bind("<Left>", lambda e: self.media_player.set_position(max(0, self.media_player.get_position() - 0.05)))# type: ignore
-        root.bind("<Right>", lambda e: self.media_player.set_position(min(1, self.media_player.get_position() + 0.05)))# type: ignore
-        root.bind("<Up>", lambda e:self.increase_volume(volume_slider))# type: ignore
-        root.bind("<Down>", lambda e:self.decrease_volume(volume_slider))
-        root.bind("<space>", lambda e: self.pause_video())  # Pause/play on space key
-        root.bind("<f>", lambda e: toggle_fullscreen(root=root))  # Toggle fullscreen on 'f' key
-        progress_bar = ctk.CTkSlider(root, width=800,from_=0, to=100, command=lambda value: self.media_player.set_position(float(value)/100))#type: ignore
-        progress_bar.grid(row=2, column=0, padx=0, pady=0, sticky="ew")
-        progress_bar.columnconfigure(0, weight=1)  # Allow progress bar to expand
-        progress_bar_label = ctk.CTkLabel(root, text=f"00:00 / 00:00", fg_color="#2c3e50")
-        progress_bar_label.grid(row=3, column=0, padx=0, pady=0, sticky="ew")
-        # Update the label with the total video duration
-
-        # Update the progress bar periodically
         def update_playback_ui():
-            if self.media_player and self.media_player.is_playing():
-                # Update slider
-                position = self.media_player.get_position() * 100
+            if media_player and media_player.is_playing():
+                position = media_player.get_position() * 100
                 progress_bar.set(position)
 
-                # Update label
-                length_ms = self.media_player.get_length() # Get length in milliseconds
-                current_time_ms = self.media_player.get_time() # Get current time in milliseconds
+                length_ms = media_player.get_length()
+                current_time_ms = media_player.get_time()
 
                 if length_ms > 0: # Avoid division by zero
                     current_minutes, current_seconds = divmod(current_time_ms // 1000, 60)
@@ -243,44 +214,59 @@ class VideoManager():
                     progress_bar_label.configure(text=f"{int(current_minutes):02}:{int(current_seconds):02} / {int(total_minutes):02}:{int(total_seconds):02}")
                 else:
                     progress_bar_label.configure(text="00:00 / 00:00")
-
             root.after(1000, update_playback_ui)  # Update every second
+        print(f"Attempting to play video: {video_path}")
+        root = ctk.CTkToplevel(self.app)
+        root.title("Video Player")
+        root.geometry("800x600")
+        vlc_instance = vlc.Instance()
+        media_player = vlc_instance.media_player_new()
 
-        update_playback_ui() # Start the periodic update
+        controls_frame = ctk.CTkFrame(root, fg_color="#2c3e50",height=30)
+        controls_frame.grid(row=0, column=0, sticky="ew")
+        root.grid_rowconfigure(0, weight=0)
+
+        pause_button = ctk.CTkButton(controls_frame, text="Pause/play", command=lambda: pause_video(self=self))
+        pause_button.pack(side=tk.LEFT, padx=0, pady=0)
+
+        stop_button = ctk.CTkButton(controls_frame, text="Stop", command=lambda: _stop_and_close_player(self=self,player_window=root,media_player=media_player))
+        stop_button.pack(side=tk.LEFT, padx=0, pady=0)
+
+        volume_slider = ctk.CTkSlider(controls_frame, from_=0, to=200, command=lambda value: media_player.audio_set_volume(int(value)))#type: ignore
+        volume_slider.set(50)
+        volume_slider.pack(side=tk.LEFT, padx=0, pady=0)
+
+        video_frame = ctk.CTkFrame(root, fg_color="black")
+        video_frame.grid(row=1, column=0, padx=0, pady=0, sticky="nsew")
+        root.grid_rowconfigure(1, weight=1)  # Allow video frame to expand
+        root.grid_columnconfigure(0, weight=1)
+
+        video_frame.bind("<Configure>", lambda event: on_video_frame_configure(self=self,event=event))
+
+        progress_bar = ctk.CTkSlider(root, width=800,from_=0, to=100, command=lambda value: media_player.set_position(float(value)/100))#type: ignore
+        progress_bar.grid(row=2, column=0, padx=0, pady=0, sticky="ew")
+        progress_bar.columnconfigure(0, weight=1)  # Allow progress bar to expand
+        progress_bar_label = ctk.CTkLabel(root, text=f"00:00 / 00:00", fg_color="#2c3e50")
+        progress_bar_label.grid(row=3, column=0, padx=0, pady=0, sticky="ew")
+        media = vlc_instance.media_new(video_path)
+        media_player.set_media(media)
+
+        root.update_idletasks()
+        media_player.set_hwnd(video_frame.winfo_id())
+
+        media_player.play()
+
+        root.bind("<Left>", lambda e: media_player.set_position(max(0, media_player.get_position() - 0.05)))# type: ignore
+        root.bind("<Right>", lambda e: media_player.set_position(min(1, media_player.get_position() + 0.05)))# type: ignore
+        root.bind("<Up>", lambda e: increase_volume(self=self,volume_slider=volume_slider))
+        root.bind("<Down>", lambda e: decrease_volume(self=self,volume_slider=volume_slider))
+        root.bind("<space>", lambda e: pause_video(root))
+        root.bind("<f>",lambda e: toggle_fullscreen(root=root))
+
+        # update_playback_ui() # Start the periodic update
         # Handle window close protocol (e.g., clicking the 'X' button)
-        root.protocol("WM_DELETE_WINDOW", lambda: self._stop_and_close_player(root))
-
-    def _stop_and_close_player(self, player_window):
-        """Stops the current video, releases its resources, and closes the player window."""
-        if self.media_player:
-            self.media_player.stop()
-            self.media_player.release()  # Release resources for this specific player
-            self.media_player = None     # Reset media_player to None
-        player_window.destroy()          # Close the Toplevel window
-    def increase_volume(self, volume_slider):
-        if self.media_player:
-            current_volume = self.media_player.audio_get_volume() # type: ignore
-            new_volume = min(current_volume + 10, 200) # Ensure volume does not exceed 200
-            self.media_player.audio_set_volume(new_volume) # type: ignore
-            volume_slider.set(new_volume) # Update the slider position
-    def decrease_volume(self, volume_slider):
-        if self.media_player:
-            current_volume = self.media_player.audio_get_volume()
-            new_volume = max(current_volume - 10, 0) # Ensure volume does not go below 0
-            self.media_player.audio_set_volume(new_volume) # type: ignore
-            volume_slider.set(new_volume) # Update the slider position
-
-    def pause_video(self):
-        if self.media_player:
-            if self.media_player.is_playing(): # Check if it's currently playing
-                self.media_player.pause()
-            else: # If not playing, assume it's paused and play
-                self.media_player.play()
-
-    def on_video_frame_configure(self, event):
-        # Only set HWND if media_player exists and is valid
-        if self.media_player:
-            self.media_player.set_hwnd(event.widget.winfo_id())
+        update_playback_ui()
+        root.protocol("WM_DELETE_WINDOW", lambda: _stop_and_close_player(self=self, player_window=root,media_player=media_player))
 
     def download_video(self, url):
         
