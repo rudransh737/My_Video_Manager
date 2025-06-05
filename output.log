@@ -1,0 +1,397 @@
+Showing 12 videos on UI.
+Thumbnail not found for your_test_video.mp4 at thumbnails\your_test_video.webp. Skipping display.
+Attempting to play video: downloads\15928153cdf8c9d0ef9e8324063627aa357fac776838349488443655b864630b.mp4
+Attempting to play video: downloads\8e7bec4436eebb85aa296a2ec9202c6830a22f3dfd6e5910a26eccfb6c2677f0.mp4
+[0000025bee541b50] avcodec decoder: Using D3D11VA (Intel(R) HD Graphics 630, vendor 8086(Intel), device 5912, revision 4) for hardware decoding
+[0000025bff629bf0] d3d11va generic error: FindVideoServiceConversion failed
+[0000025bf18bc730] direct3d11 vout display error: SetThumbNailClip failed: 0x800706f4
+[0000025b80e33bf0] dxva2 generic error: FindVideoServiceConversion failed
+[0000025bf18bc730] direct3d11 vout display error: SetThumbNailClip failed: 0x800706f4
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618290] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff619050] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff619050] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff618600] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff6193c0] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff6193c0] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff618600] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff619050] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff6193c0] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff619050] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618290] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618290] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff619050] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff6193c0] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff6193c0] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff619050] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff6193c0] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff619050] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff618290] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff618290] main filter error: Failed to create video converter
+[0000025bff618600] chain filter error: Too high level of recursion (3)
+[0000025bff618290] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff618290] main filter error: Failed to create video converter
+[0000025bff6193c0] chain filter error: Too high level of recursion (3)
+[0000025bff618290] main filter error: Failed to create video converter
+[0000025bff618600] chain filter error: Too high level of recursion (3)
+[0000025bff618290] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff618290] main filter error: Failed to create video converter
+[0000025bff619050] main filter error: Failed to create video converter
+[0000025bf18bc730] main vout display error: Failed to create video converter
+[0000025bf18bc730] main vout display error: Failed to adapt decoder format to display
+[0000025bf18bc730] direct3d11 vout display error: SetThumbNailClip failed: 0x800706f4
+[0000025bff6193c0] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff618290] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff6193c0] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff6193c0] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff619050] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff619050] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025bff618290] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff619050] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff618290] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff618290] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff618290] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025bff6193c0] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff618290] chain filter error: Too high level of recursion (3)
+[0000025bff619730] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff619050] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025bff619050] chain filter error: Too high level of recursion (3)
+[0000025bff618970] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff618970] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff618970] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff618970] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff618970] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff618970] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff618970] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025bff618290] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025bee552e90] main vout display error: Failed to create video converter
+[0000025bee552e90] main vout display error: Failed to adapt decoder format to display
+[0000025bee552e90] direct3d11 vout display error: SetThumbNailClip failed: 0x800706f4
+[0000025bf18c4220] main video output error: video output creation failed
+[0000025b805bd360] main decoder error: failed to create video output
+[0000025bff619050] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff619050] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618290] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff618290] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff618290] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618290] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff618290] main filter error: Failed to create video converter
+[0000025bff6193c0] chain filter error: Too high level of recursion (3)
+[0000025bff618290] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618290] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025bff619050] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff619050] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025bff6193c0] chain filter error: Too high level of recursion (3)
+[0000025bff618970] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff618970] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff618970] main filter error: Failed to create video converter
+[0000025bff619050] chain filter error: Too high level of recursion (3)
+[0000025bff618970] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff618970] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff618970] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff618970] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff619050] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618290] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff619050] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff6193c0] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: TVideoManager initialized.
+oo high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff6193c0] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff618290] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff618290] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff619050] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff618ce0] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff618290] chain filter error: Too high level of recursion (3)
+[0000025bff617f20] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff619730] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff618290] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff617f20] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff618970] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff619050] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff619050] chain filter error: Too high level of recursion (3)
+[0000025bff618ce0] main filter error: Failed to create video converter
+[0000025bff618600] main filter error: Failed to create video converter
+[0000025b80c86870] main vout display error: Failed to create video converter
+[0000025b80c86870] main vout display error: Failed to adapt decoder format to display
+[0000025b80c86870] direct3d11 vout display error: SetThumbNailClip failed: 0x800706f4
+[0000025bf18c3880] main video output error: video output creation failed
+[0000025b805bd360] main decoder error: failed to create video output
+[h264 @ 0000025bee700c80] get_buffer() failed
+[h264 @ 0000025bee700c80] thread_get_buffer() failed
+[h264 @ 0000025bee700c80] decode_slice_header error
+[h264 @ 0000025bee700c80] no frame!
+[h264 @ 0000025bf1824a80] get_buffer() failed
+[h264 @ 0000025bf1824a80] thread_get_buffer() failed
+[h264 @ 0000025bf1824a80] decode_slice_header error
+[h264 @ 0000025bf1824a80] no frame!
+[h264 @ 0000025bf17f96c0] get_buffer() failed
+[h264 @ 0000025bf17f96c0] thread_get_buffer() failed
+[h264 @ 0000025bf17f96c0] decode_slice_header error
+[h264 @ 0000025bf17f96c0] no frame!
+[0000025bf18c7780] direct3d11 vout display error: SetThumbNailClip failed: 0x800706f4
+[0000025bf1932c20] direct3d11 vout display error: SetThumbNailClip failed: 0x800706f4
